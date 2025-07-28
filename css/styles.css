@@ -1,0 +1,272 @@
+/* Variables de color esmeralda */
+:root {
+  --emerald-dark: #043927;
+  --emerald-base: #0bda51;
+  --emerald-light: #5ffbf1;
+  --emerald-accent: #00ff9d;
+  --dark-bg: #0a1e12;
+  --card-bg: rgba(15, 42, 30, 0.9);
+  --neon-green: #39ff14;
+}
+
+/* Animaciones */
+@keyframes gradientBG {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moneyFall {
+  0% {
+    background-position: 10% -100%, 90% -100%;
+  }
+  100% {
+    background-position: 10% 1000%, 90% 1000%;
+  }
+}
+
+@keyframes firePulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Estilos base */
+body {
+  background: url("https://www.transparenttextures.com/patterns/dark-leaves.png"),
+    linear-gradient(135deg, var(--dark-bg), #0a2e1a);
+  animation: bgPulse 20s infinite alternate;
+  color: #fff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh;
+  padding-top: 56px;
+}
+
+@keyframes bgPulse {
+  0% {
+    background-color: #0a1e12;
+  }
+  50% {
+    background-color: #0c2918;
+  }
+  100% {
+    background-color: #0e321d;
+  }
+}
+
+/* Componentes */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background-color: rgba(15, 42, 30, 0.7) !important;
+}
+
+/* Navbar esmeralda */
+.navbar {
+  background: linear-gradient(
+    to right,
+    rgba(11, 218, 81, 0.1),
+    rgba(15, 42, 30, 0.9)
+  ) !important;
+  border-bottom: 1px solid var(--emerald-base);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--emerald-base);
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* Tarjetas */
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(11, 218, 81, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 30px rgba(11, 218, 81, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Botones esmeralda */
+.btn-emerald {
+  background: linear-gradient(
+    to right,
+    var(--emerald-base),
+    var(--emerald-accent)
+  );
+  color: #000;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-emerald:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(11, 218, 81, 0.6);
+}
+
+/* Efectos de loot */
+#money-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: url("https://www.transparentpng.com/thumb/dollar/dollar-bill-png-clipart-5.png"),
+    url("https://www.freepnglogos.com/uploads/gold-coin-png/gold-coin-png-transparent-image-5.png");
+  animation: moneyFall 20s linear infinite;
+  opacity: 0.3;
+}
+
+.fire-corner {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--emerald-base) 0%, transparent 70%);
+  filter: blur(10px);
+  opacity: 0.7;
+  z-index: 0;
+  animation: firePulse 2s infinite alternate;
+}
+
+.fire-corner.top-left {
+  top: 0;
+  left: 0;
+}
+.fire-corner.top-right {
+  top: 0;
+  right: 0;
+}
+.fire-corner.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+.fire-corner.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+#loot-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+#smoke-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    border-radius: 8px;
+  }
+
+  .btn-emerald {
+    padding: 0.8rem 1rem;
+    width: 100%;
+  }
+}
+/* Añade esto al final de tu CSS */
+#login-panel,
+#user-panel,
+#nickname-input,
+#submit-nickname-btn {
+  position: relative;
+  z-index: 100; /* Mayor que los efectos */
+}
+
+/* Ajusta los z-index de los efectos */
+#money-rain {
+  z-index: 1; /* Reducido */
+}
+
+.fire-corner {
+  z-index: 1; /* Reducido */
+}
+
+#loot-particles {
+  z-index: 2; /* Reducido */
+}
+
+#smoke-canvas {
+  z-index: 0; /* El más bajo */
+}
+/* SOLUCIÓN DEFINITIVA - SIN TOCAR HTML */
+#login-panel,
+#admin-panel,
+#admin-nickname-input,
+#submit-admin-nickname-btn,
+#item-name,
+#item-description,
+#add-item-btn,
+.admin-interactive {
+  position: relative;
+  z-index: 1000 !important; /* Prioridad máxima */
+}
+
+/* Asegura que los efectos no bloqueen */
+#money-rain,
+.fire-corner,
+#loot-particles {
+  pointer-events: none !important; /* Permite clicks a través */
+  z-index: 1; /* Fondo */
+}
+
+#smoke-canvas {
+  z-index: 0 !important; /* Capa más baja */
+}
