@@ -14,6 +14,8 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
     <!-- EFFECT + SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js" defer></script>
     <script src="js/effect.js" defer></script>
     <script src="js/script.js" defer></script>
   </head>
@@ -62,6 +64,11 @@
                 ><i class="bi bi-clock-history me-1"></i>Winners History</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rules.html"
+                ><i class="bi bi-book me-1"></i>Rules</a
+              >
+            </li>
           </ul>
 
           <div class="d-flex align-items-center">
@@ -102,6 +109,19 @@
             <img src="img/luck.png" alt="Logo" width="80" class="mb-3" />
             <h2 class="h4 text-emerald">Admin Access</h2>
             <p class="text-muted">Enter your credentials to continue</p>
+          </div>
+
+          <div class="mb-3">
+            <label for="admin-username-input" class="form-label">Username:</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+              <input
+                type="text"
+                class="form-control"
+                id="admin-username-input"
+                placeholder="Admin username"
+              />
+            </div>
           </div>
 
           <div class="mb-3">
@@ -198,9 +218,9 @@
           </div>
         </div>
 
-        <h3 class="text-emerald mb-3">Ítems Predefinidos para Listar</h3>
+        <h3 class="text-emerald mb-3">Predefined Items to List</h3>
         <div id="predefined-items-list" class="list-group mb-4">
-          <!-- Los ítems predefinidos se cargarán aquí dinámicamente por JS -->
+          <!-- Predefined items will be loaded here dynamically by JS -->
         </div>
 
         <!-- Loot Queue Section -->
