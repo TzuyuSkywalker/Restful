@@ -33,6 +33,8 @@
         pointer-events: none;
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js" defer></script>
     <script src="js/effect.js" defer></script>
   </head>
 
@@ -80,6 +82,11 @@
                 ><i class="bi bi-clock-history me-1"></i>Winners History</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rules.html"
+                ><i class="bi bi-book me-1"></i>Rules</a
+              >
+            </li>
           </ul>
 
           <div class="d-flex align-items-center">
@@ -104,7 +111,7 @@
 
     <!-- Contenido principal -->
     <main class="container my-4 position-relative">
-      <!-- Panel de Historial -->
+      <!-- History Panel -->
       <div id="history-panel" class="card card-emerald fade-in">
         <div class="card-header">
           <h2 class="h4 mb-0 text-emerald">
@@ -113,11 +120,8 @@
           </h2>
         </div>
         <div class="card-body p-0">
-          <div class="table-responsive position-relative">
+          <div class="table-responsive position-relative ladder-fire">
             <!-- animated flame border -->
-            <div
-              class="ladder-fire position-absolute top-0 start-0 w-100 h-100"
-            ></div>
             <table class="table table-hover mb-0">
               <thead>
                 <tr>
@@ -140,7 +144,7 @@
         </div>
         <div class="card-footer bg-transparent">
           <small class="text-muted"
-            >Last Update: <span id="last-update">hoy</span></small
+            >Last Update: <span id="last-update">today</span></small
           >
         </div>
       </div>

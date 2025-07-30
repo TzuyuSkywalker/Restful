@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +13,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/script.js" defer></script>
     <script src="js/effect.js" defer></script>
   </head>
   <body>
@@ -58,6 +61,11 @@
                 ><i class="bi bi-clock-history me-1"></i>Winners History</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rules.html"
+                ><i class="bi bi-book me-1"></i>Rules</a
+              >
+            </li>
           </ul>
 
           <div class="d-flex align-items-center">
@@ -67,7 +75,7 @@
             </span>
             <div class="btn-group">
               <button id="login-btn" class="btn btn-success">
-                <i class="bi bi-box-arrow-in-right me-1"></i>Ingresar
+                <i class="bi bi-box-arrow-in-right me-1"></i>Login
               </button>
               <button
                 id="logout-btn"
@@ -107,7 +115,7 @@
                 type="text"
                 class="form-control"
                 id="nickname-input"
-                placeholder="Write here bastard 😠"
+                placeholder="Enter your character name 😠"
               />
             </div>
           </div>
@@ -160,7 +168,7 @@
                           <i
                             class="bi bi-database-exclamation fs-4 d-block mb-2"
                           ></i>
-                          No hay datos disponibles
+                          No data available
                         </td>
                       </tr>
                     </tbody>
@@ -183,7 +191,7 @@
                 >
                   <li class="list-group-item text-center py-4 text-muted">
                     <i class="bi bi-box-seam fs-4 d-block mb-2"></i>
-                    No hay ítems disponibles
+                    No items available
                   </li>
                 </ul>
               </div>
@@ -198,7 +206,6 @@
       </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
     <div id="money-rain"></div>
     <div class="fire-corner top-left"></div>
     <div class="fire-corner top-right"></div>
