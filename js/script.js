@@ -362,19 +362,19 @@ function renderWinnersHistory() {
 
     // Basic validation for critical properties
     if (!winnerEntry.item_img_url) {
-      console.error(`Winner entry ${index} is missing item_img_url:`, winnerEntry);
+      console.error(`Winner entry ${index} is missing item_img_url. Skipping entry:`, winnerEntry);
       return; // Skip this entry if critical data is missing
     }
     if (!winnerEntry.item_name) {
-      console.error(`Winner entry ${index} is missing item_name:`, winnerEntry);
+      console.error(`Winner entry ${index} is missing item_name. Skipping entry:`, winnerEntry);
       return; // Skip this entry if critical data is missing
     }
     if (!winnerEntry.winner_nickname) {
-      console.error(`Winner entry ${index} is missing winner_nickname:`, winnerEntry);
+      console.error(`Winner entry ${index} is missing winner_nickname. Skipping entry:`, winnerEntry);
       return; // Skip this entry if critical data is missing
     }
     if (!winnerEntry.assigned_date) {
-      console.error(`Winner entry ${index} is missing assigned_date:`, winnerEntry);
+      console.error(`Winner entry ${index} is missing assigned_date. Skipping entry:`, winnerEntry);
       return; // Skip this entry if critical data is missing
     }
 
