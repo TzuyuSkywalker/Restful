@@ -10,6 +10,7 @@ const isUserPage =
   window.location.pathname === "/";
 const isAdminPage = window.location.pathname.endsWith("/admin.html");
 const isHistoryPage = window.location.pathname.endsWith("/history.html");
+console.log("isHistoryPage:", isHistoryPage);
 
 // Elementos comunes o específicos de cada página que necesitamos manipular
 const loginPanel = document.getElementById("login-panel");
