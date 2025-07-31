@@ -9,7 +9,7 @@ const isUserPage =
   window.location.pathname.endsWith("/index.html") ||
   window.location.pathname === "/";
 const isAdminPage = window.location.pathname.endsWith("/admin.html");
-const isHistoryPage = window.location.pathname.endsWith("/history.html");
+const isHistoryPage = window.location.pathname.endsWith("/history.html") || window.location.pathname.endsWith("/history");
 console.log("isHistoryPage:", isHistoryPage);
 
 // Elementos comunes o específicos de cada página que necesitamos manipular
