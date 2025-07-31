@@ -9,6 +9,7 @@ const isUserPage =
   window.location.pathname.endsWith("/index.html") ||
   window.location.pathname === "/";
 const isAdminPage = window.location.pathname.endsWith("/admin.html");
+console.log("isAdminPage:", isAdminPage);
 const isHistoryPage = window.location.pathname.endsWith("/history.html") || window.location.pathname.endsWith("/history");
 console.log("isHistoryPage:", isHistoryPage);
 
@@ -342,7 +343,6 @@ function renderWinnersHistory() {
     console.log("winnersHistoryTableBody element not found.");
     return;
   }
-  console.log("winnersHistoryTableBody element:", winnersHistoryTableBody);
   console.log("Rendering winners history. Current winnersHistory array:", winnersHistory);
 
   winnersHistoryTableBody.innerHTML = "";
