@@ -1,3 +1,4 @@
+console.log("script.js loaded successfully!");
 let currentUser = null;
 let items = [];
 let lootQueue = [];
