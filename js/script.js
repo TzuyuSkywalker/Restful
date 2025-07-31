@@ -108,8 +108,6 @@ async function fetchDataFromSupabase() {
       .select('*');
     if (winnersHistoryError) throw winnersHistoryError;
     winnersHistory = fetchedWinnersHistory;
-    console.log("Fetched winners history:", winnersHistory);
-
     console.log("Data fetched successfully.");
   } catch (error) {
     console.error("Error fetching data from Supabase:", error.message);
@@ -727,6 +725,25 @@ function updateUIForPage() {
     renderPredefinedItems();
     renderAdminItems();
     renderLootQueue();
+
+    // Automated winner selection for admin page
+    setInterval(async () => {
+      console.log("Client-side check for expired active items...");
+      const now = Date.now();
+      const itemsToProcess = items.filter(
+        (item) => item.status === "active" && new Date(item.end_time).getTime() <= now
+      );
+
+      for (const item of itemsToProcess) {
+        console.log(`Attempting to pick winner for item ${item.name} (ID: ${item.id}) as its end_time has passed.`);
+        // Temporarily set status to 'closed' to allow pickRandomWinner to proceed
+        // This is a client-side hack to bypass the 'closed' status check in pickRandomWinner
+        // The server-side will ultimately determine the true status.
+        item.status = "closed"; 
+        await pickRandomWinner(item.id);
+      }
+    }, 10000); // Check every 10 seconds
+
   } else if (isUserPage) {
     renderAvailableItems();
     renderLootQueue();
