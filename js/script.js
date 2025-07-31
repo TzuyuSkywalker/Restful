@@ -341,6 +341,7 @@ function renderWinnersHistory() {
     console.log("winnersHistoryTableBody element not found.");
     return;
   }
+  console.log("winnersHistoryTableBody element:", winnersHistoryTableBody);
   console.log("Rendering winners history. Current winnersHistory array:", winnersHistory);
 
   winnersHistoryTableBody.innerHTML = "";
