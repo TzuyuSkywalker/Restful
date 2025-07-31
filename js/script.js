@@ -740,11 +740,20 @@ async function loginUser(nick) {
       const adminUsername = adminUsernameInput ? adminUsernameInput.value.trim() : '';
       const adminPassword = adminNicknameInput ? adminNicknameInput.value.trim() : '';
 
-      console.log("Attempting admin login with:", { username: adminUsername, password: adminPassword });
+      const { data, error } = await supabase
+        .from('admin_credentials')
+        .select('password')
+        .eq('username', adminUsername)
+        .single();
 
-      // Usar las variables globales de config.js
-      if (adminUsername === ADMIN_USERNAME && adminPassword === ADMIN_NICKNAME) {
-        currentUser = "admin"; // Set currentUser to "admin" for UI logic
+      if (error) {
+        console.error("Error fetching admin credentials:", error.message);
+        alert("Error al iniciar sesión: " + error.message);
+        return;
+      }
+
+      if (data && data.password === adminPassword) {
+        currentUser = "admin";
         localStorage.setItem("currentUser", "admin");
         updateUIForPage();
       } else {
