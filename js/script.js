@@ -965,7 +965,7 @@ if (isAdminPage) {
               : predefinedItem.name,
             description: predefinedItem.description,
             img_url: predefinedItem.img,
-            end_time: new Date(Date.now() + 6 * 60 * 1000).toISOString(),
+            end_time: new Date(Date.now() + 10 * 60 * 1000).toISOString(),
             status: "active",
             assigned_to_player_nickname: null,
           };
